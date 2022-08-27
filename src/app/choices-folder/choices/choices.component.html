@@ -1,0 +1,39 @@
+<div class="container mt-2">
+    <div class="card">
+        <div class="card-header">
+            <h5 id="tableTitle">Choices List</h5>
+            <button class="btn btn-success" id="addQuestionBtn" routerLink="/new-choice">
+                <i class="bi bi-plus-square"> New Choice</i>
+            </button>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th> <th>Content</th> <th>Score</th> <th>Related Response Type</th> <th>Related Question</th> 
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let c of choices">
+                        <td>{{c.idC}}</td>
+                        <td>{{c.contentC}}</td>
+                        <td>{{c.scoreC}}</td>
+                        <td>{{c.choicesResponseDTO.choicesResponseType}}</td>
+                        <td>{{c.choicesResponseDTO.questionDTO.contentQ}}</td>
+                        <td>
+                            <button class="btn btn-info" routerLink="/questions/question/{{c.idC}}">
+                                <i class="bi bi-pencil-square"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button (click)="handleDeleteChoice(c)" class="btn btn-danger">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

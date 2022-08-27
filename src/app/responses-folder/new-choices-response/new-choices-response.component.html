@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="card col-md-6 offset-3 mt-2">
+        <div class="card-header">New Choices Response</div>
+        <div class="card-body">
+            <form [formGroup]="newCRFormGroup" (ngSubmit)="HandleSaveChoicesResponse()">
+                <div class="mb-3">
+                    <label class="form-label">Choices Response Type : </label>
+                    <select (change)="onChange()" [(ngModel)]="selectedResponseType"
+                        formControlName="choicesResponseType" class="form-control form-select">
+                        <option *ngFor="let srt of srtvalues" value={{srt}}>{{ srt }}</option>
+                    </select>
+                    <span class="text-danger"
+                    *ngIf="newCRFormGroup.controls['choicesResponseType'].touched 
+                    && newCRFormGroup.controls['choicesResponseType'].errors
+                    && newCRFormGroup.controls['choicesResponseType'].errors['required']">
+                        Response Type is required !
+                    </span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Related Question : </label>
+
+                    <select (change)="onChange()" [(ngModel)]="selectedQuestion" formControlName="questionId" class="form-control form-select">
+                        <option *ngFor="let q of questions" value={{q.idQ}}>{{ q.contentQ }}</option>
+                    </select>
+
+                    <span class="text-danger"
+                    *ngIf="newCRFormGroup.controls['questionId'].touched 
+                    && newCRFormGroup.controls['questionId'].errors
+                    && newCRFormGroup.controls['questionId'].errors['required']">
+                        Related Question is required !
+                    </span>
+                </div>
+                <button [disabled]="!newCRFormGroup.valid" id="saveResponseBtn" class="btn btn-info">Save</button>
+            </form> 
+        </div>
+    </div>
+</div>

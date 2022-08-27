@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="card col-md-6 offset-3 mt-2">
+        <div class="card-header">New Question</div>
+        <div class="card-body">
+            <form [formGroup]="newQuestionFormGroup" (ngSubmit)="handleSaveQuestion()">
+                <div class="mb-3">
+                    <label class="form-label">Content : </label>
+                    <input type="text" formControlName="contentQ" class="form-control">
+                    <span class="text-danger"
+                    *ngIf="newQuestionFormGroup.controls['contentQ'].touched 
+                    && newQuestionFormGroup.controls['contentQ'].errors
+                    && newQuestionFormGroup.controls['contentQ'].errors['required']">
+                        Content is required !
+                    </span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Ordre : </label>
+                    <input type="number" formControlName="ordreQ" class="form-control">
+                    <span class="text-danger"
+                    *ngIf="newQuestionFormGroup.controls['ordreQ'].touched 
+                    && newQuestionFormGroup.controls['ordreQ'].errors
+                    && newQuestionFormGroup.controls['ordreQ'].errors['required']">
+                        Ordre is required !
+                    </span>
+                </div>
+                <button [disabled]="!newQuestionFormGroup.valid" id="saveQuestionBtn" class="btn btn-info">Save</button>
+            </form> 
+        </div>
+    </div>
+</div>

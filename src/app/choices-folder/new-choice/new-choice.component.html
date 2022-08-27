@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="card col-md-6 offset-3 mt-2">
+        <div class="card-header">New Choice</div>
+        <div class="card-body">
+            <form [formGroup]="newChoiceFormGroup" (ngSubmit)="HandleSaveChoice()">
+                <div class="mb-3">
+                    <label class="form-label">Content : </label>
+                    <input type="text" formControlName="contentC" class="form-control">
+                    <span class="text-danger"
+                    *ngIf="newChoiceFormGroup.controls['contentC'].touched 
+                    && newChoiceFormGroup.controls['contentC'].errors
+                    && newChoiceFormGroup.controls['contentC'].errors['required']">
+                        Content is required !
+                    </span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Score : </label>
+                    <input type="number" formControlName="scoreC" class="form-control">
+                    <span class="text-danger"
+                    *ngIf="newChoiceFormGroup.controls['scoreC'].touched 
+                    && newChoiceFormGroup.controls['scoreC'].errors
+                    && newChoiceFormGroup.controls['scoreC'].errors['required']">
+                        Score is required !
+                    </span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Related Question : </label>
+                    <select (change)="onChange()" [(ngModel)]="selectedResponse" formControlName="choicesResponseId" class="form-control form-select">
+                        <option *ngFor="let r of responses" value={{r.idR}}>{{ r.questionDTO.contentQ }}</option>
+                    </select>
+
+                    <span class="text-danger"
+                    *ngIf="newChoiceFormGroup.controls['choicesResponseId'].touched 
+                    && newChoiceFormGroup.controls['choicesResponseId'].errors
+                    && newChoiceFormGroup.controls['choicesResponseId'].errors['required']">
+                        Related Question is required !
+                    </span>
+                </div>
+                <button [disabled]="!newChoiceFormGroup.valid" id="saveChoiceBtn" class="btn btn-info">Save</button>
+            </form> 
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+#addResponseBtn, #addResponseBtn2 {
+    float: right;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+#tableTitle {
+    float : left;
+    margin-top: 5px;
+}

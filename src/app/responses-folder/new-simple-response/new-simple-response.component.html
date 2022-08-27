@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="card col-md-6 offset-3 mt-2">
+        <div class="card-header">New Simple Response</div>
+        <div class="card-body">
+            <form [formGroup]="newSRFormGroup" (ngSubmit)="HandleSaveSimpleResponse()">
+                <div class="mb-3">
+                    <label class="form-label">Simple Response Type : </label>
+                    <select (change)="onChange()" [(ngModel)]="selectedResponseType"
+                        formControlName="simpleResponseType" class="form-control form-select">
+                        <option *ngFor="let srt of srtvalues" value={{srt}}>{{ srt }}</option>
+                    </select>
+                    <span class="text-danger"
+                    *ngIf="newSRFormGroup.controls['simpleResponseType'].touched 
+                    && newSRFormGroup.controls['simpleResponseType'].errors
+                    && newSRFormGroup.controls['simpleResponseType'].errors['required']">
+                        Response Type is required !
+                    </span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Related Question : </label>
+
+                    <select (change)="onChange()" [(ngModel)]="selectedQuestion" formControlName="questionId" class="form-control form-select">
+                        <option *ngFor="let q of questions" value={{q.idQ}}>{{ q.contentQ }}</option>
+                    </select>
+
+                    <span class="text-danger"
+                    *ngIf="newSRFormGroup.controls['questionId'].touched 
+                    && newSRFormGroup.controls['questionId'].errors
+                    && newSRFormGroup.controls['questionId'].errors['required']">
+                        Related Question is required !
+                    </span>
+                </div>
+                <button [disabled]="!newSRFormGroup.valid" id="saveResponseBtn" class="btn btn-info">Save</button>
+            </form> 
+        </div>
+    </div>
+</div>

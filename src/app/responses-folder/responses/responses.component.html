@@ -1,0 +1,41 @@
+<div class="container mt-2">
+    <div class="card">
+        <div class="card-header">
+            <h5 id="tableTitle">Responses List </h5>
+            <button class="btn btn-success" id="addResponseBtn" routerLink="/new-simple-response">
+                <i class="bi bi-plus-square"> New Simple Response</i>
+            </button>
+            <button class="btn btn-success" id="addResponseBtn2" routerLink="/new-choices-response">
+                <i class="bi bi-plus-square"> New choices Response</i>
+            </button>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th> <th>Category</th> <th>Type</th> <th>Related Question</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let r of responses">
+                        <td>{{r.idR}}</td>
+                        <td>{{r.type}}</td>
+                        <td *ngIf="r.simpleResponseType">{{r.simpleResponseType}}</td>
+                        <td *ngIf="r.choicesResponseType">{{r.choicesResponseType}}</td>
+                        <td>{{r.questionDTO.contentQ}}</td>
+                        <td>
+                            <button class="btn btn-info" routerLink="/responses/response/{{r.idR}}">
+                                <i class="bi bi-pencil-square"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button (click)="handleDeleteResponse(r)" class="btn btn-danger">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

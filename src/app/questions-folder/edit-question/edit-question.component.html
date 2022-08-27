@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="card col-md-6 offset-3 mt-2">
+        <div class="card-header">Edit Question</div>
+        <div class="card-body">
+            <form [formGroup]="editQuestionFormGroup" (ngSubmit)="handleEditQuestion()">
+                <div class="mb-3">
+                    <label class="form-label">ID : </label>
+                    <input type="text" formControlName="idQ" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Content : </label>
+                    <input type="text" formControlName="contentQ" class="form-control">
+                    <span class="text-danger"
+                    *ngIf="editQuestionFormGroup.controls['contentQ'].touched 
+                    && editQuestionFormGroup.controls['contentQ'].errors
+                    && editQuestionFormGroup.controls['contentQ'].errors['required']">
+                        Content is required !
+                    </span>
+                </div> 
+                <div class="mb-3">
+                    <label class="form-label">Ordre : </label>
+                    <input type="number" formControlName="ordreQ" class="form-control">
+                    <span class="text-danger"
+                    *ngIf="editQuestionFormGroup.controls['ordreQ'].touched 
+                    && editQuestionFormGroup.controls['ordreQ'].errors 
+                    && editQuestionFormGroup.controls['ordreQ'].errors['required']">
+                        Ordre is required !
+                    </span>
+                </div>
+                <button [disabled]="!editQuestionFormGroup.valid" id="saveQuestionBtn" class="btn btn-info">Update</button>
+            </form> 
+        </div>
+    </div>
+</div>

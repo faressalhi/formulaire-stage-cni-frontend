@@ -1,0 +1,37 @@
+<div class="container mt-2">
+    <div class="card">
+        <div class="card-header">
+            <h5 id="tableTitle">Questions List</h5>
+            <button class="btn btn-success" id="addQuestionBtn" routerLink="/new-question">
+                <i class="bi bi-plus-square"> New Question</i>
+            </button>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th> <th>Content</th> <th>Ordre</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let q of questions">
+                        <td>{{q.idQ}}</td>
+                        <td>{{q.contentQ}}</td>
+                        <td>{{q.ordreQ}}</td>
+                        <td>
+                            <button (click)="handleEditQuestion(q)" class="btn btn-info" routerLink="/questions/question/{{q.idQ}}">
+                                <i class="bi bi-pencil-square"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button (click)="handleDeleteQuestion(q)" class="btn btn-danger">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
