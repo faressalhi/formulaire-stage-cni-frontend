@@ -8,6 +8,7 @@ import { NewSimpleResponseComponent } from './responses-folder/new-simple-respon
 import { NewChoicesResponseComponent } from './responses-folder/new-choices-response/new-choices-response.component';
 import { ChoicesComponent } from './choices-folder/choices/choices.component';
 import { NewChoiceComponent } from './choices-folder/new-choice/new-choice.component';
+import { EditChoiceComponent } from './choices-folder/edit-choice/edit-choice.component';
 
 
 
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path : "new-simple-response", component : NewSimpleResponseComponent },
   { path : "new-choices-response", component : NewChoicesResponseComponent },
   { path : "choices", component : ChoicesComponent },
-  { path : "new-choice", component : NewChoiceComponent }
+  { path : "new-choice", component : NewChoiceComponent },
+  { path : "choices/choice/:id", component : EditChoiceComponent }
 
 ];
 

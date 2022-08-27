@@ -17,6 +17,7 @@ import { NewSimpleResponseComponent } from './responses-folder/new-simple-respon
 import { NewChoicesResponseComponent } from './responses-folder/new-choices-response/new-choices-response.component';
 import { ChoicesComponent } from './choices-folder/choices/choices.component';
 import { NewChoiceComponent } from './choices-folder/new-choice/new-choice.component';
+import { EditChoiceComponent } from './choices-folder/edit-choice/edit-choice.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NewChoiceComponent } from './choices-folder/new-choice/new-choice.compo
     NewSimpleResponseComponent,
     NewChoicesResponseComponent,
     ChoicesComponent,
-    NewChoiceComponent
+    NewChoiceComponent,
+    EditChoiceComponent
   ],
   imports: [
     BrowserModule,
