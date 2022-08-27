@@ -16,15 +16,28 @@ export class ResponsesService {
     return this.http.get<Array<any>>(environment.backendHost+"/responses");
   }
 
-  
+  public getResponse(id : string) : Observable<any> {
+    return this.http.get<any>(environment.backendHost+"/responses/"+id);
+  }
+
   public saveSimpleResponse(simpleResponse : SimpleResponse) : Observable<SimpleResponse> {
     return this.http.post<SimpleResponse>(environment.backendHost+"/responses/simpleresponse", simpleResponse);
   }
 
-  public   saveChoicesResponse(choicesResponse : ChoicesResponse) : Observable<ChoicesResponse> {
+  public saveChoicesResponse(choicesResponse : ChoicesResponse) : Observable<ChoicesResponse> {
     return this.http.post<ChoicesResponse>(environment.backendHost+"/responses/choicesresponse", choicesResponse);
   }
 
+  public updateSimpleResponse(simpleResponse: SimpleResponse) : Observable<SimpleResponse> {
+    console.log(simpleResponse.idR);    
+    return this.http.put<SimpleResponse>(environment.backendHost+"/responses/simpleresponse/"+simpleResponse.idR, simpleResponse);
+  }
+
+  public updateChoicesResponse(choicesResponse: ChoicesResponse) : Observable<ChoicesResponse> {
+    console.log(choicesResponse.idR);
+    
+    return this.http.put<ChoicesResponse>(environment.backendHost+"/responses/choicesresponse/"+choicesResponse.idR, choicesResponse);
+  }
 
   public deleteResponse(id : string) {
     return this.http.delete(environment.backendHost+"/responses/"+id);

@@ -9,6 +9,7 @@ import { NewChoicesResponseComponent } from './responses-folder/new-choices-resp
 import { ChoicesComponent } from './choices-folder/choices/choices.component';
 import { NewChoiceComponent } from './choices-folder/new-choice/new-choice.component';
 import { EditChoiceComponent } from './choices-folder/edit-choice/edit-choice.component';
+import { EditResponseComponent } from './responses-folder/edit-response/edit-response.component';
 
 
 
@@ -19,10 +20,11 @@ const routes: Routes = [
   { path : "responses", component : ResponsesComponent },
   { path : "new-simple-response", component : NewSimpleResponseComponent },
   { path : "new-choices-response", component : NewChoicesResponseComponent },
+  { path : "responses/response/:id", component : EditResponseComponent },
   { path : "choices", component : ChoicesComponent },
   { path : "new-choice", component : NewChoiceComponent },
-  { path : "choices/choice/:id", component : EditChoiceComponent }
-
+  { path : "choices/choice/:id", component : EditChoiceComponent },
+  
 ];
 
 @NgModule({

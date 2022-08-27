@@ -1,1 +1,49 @@
-<p>edit-response works!</p>
+<div class="container mt-5">
+    <div class="card col-md-6 offset-3 mt-2">
+        <div class="card-header">Edit Response</div>
+        <div class="card-body">
+            <form *ngIf="(isSimpleResponse)" [formGroup]="editSimpleResponseFormGroup" (ngSubmit)="handleEditSimpleResponse()">
+                <div class="mb-3">
+                    <label class="form-label">ID : </label>
+                    <input type="text" formControlName="idR" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Simple Response Type : </label>
+                    <select (change)="onChange()" [(ngModel)]="selectedResponseType"
+                        formControlName="simpleResponseType" class="form-control form-select">
+                        <option *ngFor="let srt of srtvalues" value={{srt}}>{{ srt }}</option>
+                    </select>
+                </div> 
+                <div class="mb-3">
+                    <label class="form-label">Related Question : </label>
+                    <select (change)="onChange()" [(ngModel)]="selectedResponse" formControlName="questionId" class="form-control form-select">
+                        <option *ngFor="let q of questions" value={{q.idQ}}>{{ q.contentQ }}</option>
+                    </select>
+                </div>
+                <button id="editSimpleResponseBtn" class="btn btn-info">Update</button>
+            </form> 
+            <form *ngIf="(isSimpleResponse === false)" [formGroup]="editChoicesResponseFormGroup" (ngSubmit)="handleEditChoicesResponse()">
+                <div class="mb-3">
+                    <label class="form-label">ID : </label>
+                    <input type="text" formControlName="idR" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Choices Response Type : </label>
+                    <select (change)="onChange()" [(ngModel)]="selectedResponseType"
+                        formControlName="choicesResponseType" class="form-control form-select">
+                        <option *ngFor="let crt of crtvalues" value={{crt}}>{{ crt }}</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Related Question : </label>
+                        <select (change)="onChange()" [(ngModel)]="selectedResponse" formControlName="questionId" class="form-control form-select">
+                            <option *ngFor="let q of questions" value={{q.idQ}}>{{ q.contentQ }}</option>
+                        </select> 
+                </div>
+                <button id="editChoicesResponseBtn" class="btn btn-info">Update</button>
+            </form> 
+        </div>
+    </div>
+</div>

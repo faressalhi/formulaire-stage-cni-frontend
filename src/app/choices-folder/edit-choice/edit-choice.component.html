@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container mt-5">
     <div class="card col-md-6 offset-3 mt-2">
         <div class="card-header">Edit Choice</div>
         <div class="card-body">
-            <form [formGroup]="editChoiceFormGroup" (ngSubmit)="handleEditQuestion()">
+            <form [formGroup]="editChoiceFormGroup" (ngSubmit)="handleEditChoice()">
                 <div class="mb-3">
                     <label class="form-label">ID : </label>
                     <input type="text" formControlName="idC" class="form-control">
@@ -19,7 +19,6 @@
                 </div>
                 <label class="form-label">Related Question : </label>
                     <select (change)="onChange()" [(ngModel)]="selectedResponse" formControlName="choicesResponseId" class="form-control form-select">
-                        <option value="null" selected>Select</option>
                         <option *ngFor="let r of responses" value={{r.idR}}>{{ r.questionDTO.contentQ }}</option>
                     </select>
                 <br>

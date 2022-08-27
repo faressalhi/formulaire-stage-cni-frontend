@@ -1,4 +1,4 @@
-<div class="container mt-2">
+<div class="container mt-5">
     <div class="card">
         <div class="card-header">
             <h5 id="tableTitle">Responses List </h5>
@@ -23,7 +23,12 @@
                         <td *ngIf="r.simpleResponseType">{{r.simpleResponseType}}</td>
                         <td *ngIf="r.choicesResponseType">{{r.choicesResponseType}}</td>
                         <td>{{r.questionDTO.contentQ}}</td>
-                        <td>
+                        <td *ngIf="r.simpleResponseType">
+                            <button class="btn btn-info" routerLink="/responses/response/{{r.idR}}">
+                                <i class="bi bi-pencil-square"></i>
+                            </button>
+                        </td>
+                        <td *ngIf="r.choicesResponseType">
                             <button class="btn btn-info" routerLink="/responses/response/{{r.idR}}">
                                 <i class="bi bi-pencil-square"></i>
                             </button>

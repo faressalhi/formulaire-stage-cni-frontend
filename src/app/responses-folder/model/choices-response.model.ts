@@ -2,6 +2,6 @@ import { ChoicesResponseType } from "./EnumTypes.model";
 
 export interface ChoicesResponse {
     idR : string;
-    crType : ChoicesResponseType;
+    choicesResponseType : ChoicesResponseType;
 	questionId : string;
 }

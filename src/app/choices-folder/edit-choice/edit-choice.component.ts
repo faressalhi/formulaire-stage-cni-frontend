@@ -75,7 +75,7 @@ export class EditChoiceComponent implements OnInit {
   }
 
 
-  handleEditQuestion() {
+  handleEditChoice() {
     
     let choice:any = this.editChoiceFormGroup.value;
     choice.idC = this.choiceId;
