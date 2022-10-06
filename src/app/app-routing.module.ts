@@ -10,6 +10,7 @@ import { ChoicesComponent } from './choices-folder/choices/choices.component';
 import { NewChoiceComponent } from './choices-folder/new-choice/new-choice.component';
 import { EditChoiceComponent } from './choices-folder/edit-choice/edit-choice.component';
 import { EditResponseComponent } from './responses-folder/edit-response/edit-response.component';
+import { CandidateFormComponent } from './candidate-view-folder/candidate-form/candidate-form.component';
 
 
 
@@ -24,6 +25,8 @@ const routes: Routes = [
   { path : "choices", component : ChoicesComponent },
   { path : "new-choice", component : NewChoiceComponent },
   { path : "choices/choice/:id", component : EditChoiceComponent },
+  { path : "candidate-form", component : CandidateFormComponent },
+
   
 ];
 

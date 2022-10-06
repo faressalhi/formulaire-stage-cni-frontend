@@ -18,6 +18,7 @@ import { NewChoicesResponseComponent } from './responses-folder/new-choices-resp
 import { ChoicesComponent } from './choices-folder/choices/choices.component';
 import { NewChoiceComponent } from './choices-folder/new-choice/new-choice.component';
 import { EditChoiceComponent } from './choices-folder/edit-choice/edit-choice.component';
+import { CandidateFormComponent } from './candidate-view-folder/candidate-form/candidate-form.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { EditChoiceComponent } from './choices-folder/edit-choice/edit-choice.co
     NewChoicesResponseComponent,
     ChoicesComponent,
     NewChoiceComponent,
-    EditChoiceComponent
+    EditChoiceComponent,
+    CandidateFormComponent
   ],
   imports: [
     BrowserModule,
